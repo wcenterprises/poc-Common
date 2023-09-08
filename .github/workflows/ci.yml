@@ -19,6 +19,8 @@ jobs:
         shell: pwsh  
 
       - uses: brian-welsh/build-setup-action@test
+        with:
+            build-channel: 'release'
 
 
 
