@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
        
@@ -18,7 +18,7 @@ jobs:
             Write-host "ref: ${{ github.ref }}"
         shell: pwsh  
 
-      - uses: brian-welsh/build-setup-action@test
+      - uses: brian-welsh/build-setup-action@feature/setup
 
 
 
