@@ -18,8 +18,7 @@ jobs:
             Write-host "ref: ${{ github.ref }}"
         shell: pwsh  
 
-      - uses: brian-welsh/build-setup-action@feature/setup
-
+      - uses: brian-welsh/build-setup-action@test
 
 
 
