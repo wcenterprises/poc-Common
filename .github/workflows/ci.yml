@@ -20,7 +20,7 @@ jobs:
             Write-host "ref: ${{ github.ref }}"
         shell: pwsh  
 
-      - uses: brian-welsh/build-setup-action@v1
+      - uses: brian-welsh/build-setup-action@dev/v1
 
       - run: 'gci env: | select name,value'
         shell: pwsh
