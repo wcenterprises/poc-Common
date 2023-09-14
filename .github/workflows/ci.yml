@@ -12,15 +12,11 @@ jobs:
 
     steps:
        
-      - uses: actions/checkout@v3
-
-      - name: debug
-        run: |
-            gci env: | select name,value
-            Write-host "ref: ${{ github.ref }}"
-        shell: pwsh  
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v2
       - uses: brian-welsh/build-setup-action@dev/v1
+
+      - run: dotnet build src --configuration release --verbosity minimal
 
       - run: 'gci env: | select name,value'
         shell: pwsh
