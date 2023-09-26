@@ -26,7 +26,7 @@ jobs:
       - uses: brian-welsh/composite-build-action/package@main
         id: package
         with:
-          version: ${{ steps.setup.version }}
+          version: ${{ steps.setup.outputs.version }}
 
       - run: 'gci env: | select name,value'
         shell: pwsh
