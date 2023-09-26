@@ -21,6 +21,10 @@ jobs:
         shell: pwsh  
 
       - uses: brian-welsh/composite-build-action/setup@main
+        id: setup
+
+      - uses: brian-welsh/composite-build-action/package@main
+        id: package
 
       - run: 'gci env: | select name,value'
         shell: pwsh
