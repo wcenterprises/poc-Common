@@ -28,7 +28,8 @@ jobs:
         with:
           version: ${{ steps.setup.outputs.version }}
 
-      - run: 'gci env: | select name,value'
+      - run: |
+          write-host 'Version: ${{ steps.setup.outputs.version }}'
         shell: pwsh
 
 
