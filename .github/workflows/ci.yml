@@ -30,6 +30,7 @@ jobs:
 
       - run: |
           write-host 'Version: ${{ steps.setup.outputs.version }}'
+          write-host 'Version: ${{ steps.setup.outputs.informational-version }}'
         shell: pwsh
 
 
