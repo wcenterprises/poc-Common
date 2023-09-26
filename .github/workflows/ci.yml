@@ -29,8 +29,8 @@ jobs:
           version: ${{ steps.setup.outputs.version }}
 
       - run: |
-          write-host 'Version: ${{ steps.setup.outputs.vesion }}'
-          write-host 'Version: ${{ steps.setup.outputs.inforational-version }}'
+          write-host 'Version: ${{ steps.setup.outputs.version }}'
+          write-host 'Version: ${{ steps.setup.outputs.informational-version }}'
         shell: pwsh
 
 
