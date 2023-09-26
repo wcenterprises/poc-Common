@@ -25,6 +25,8 @@ jobs:
 
       - uses: brian-welsh/composite-build-action/package@main
         id: package
+        with:
+          package-name: '${{vars.PRODUCT_NAME}}-${{ steps.setup.outputs.informational-version }}'
  
       - run: |
           write-host 'Version: ${{ steps.setup.outputs.version }}'
