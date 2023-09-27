@@ -45,7 +45,14 @@ jobs:
       - uses: brian-welsh/composite-build-action/package@main
         id: package
         with:
-          package-name: '${{ vars.PRODUCT_NAME }}-${{ steps.setup.outputs.informational-version }}'
+          package-name: '${{ vars.PRODUCT_NAME }}'
+          package-version: ${{ steps.setup.outputs.informational-version }}
+
+      - uses: actions/upload-artifact@v3
+        with: 
+          name: octopus
+          path: '${{ github.workspace }}/../octopus/*'
+          retention-days: 1
  
       - run: |
           write-host 'Version: ${{ steps.setup.outputs.version }}'
