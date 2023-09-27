@@ -18,7 +18,6 @@ jobs:
 
 
       - uses: brian-welsh/composite-build-action/setup@main
-        id: setup      
 
       - name: build
         run: |
