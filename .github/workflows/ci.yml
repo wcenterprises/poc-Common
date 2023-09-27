@@ -28,8 +28,6 @@ jobs:
             --output "$(resolve-path '${{ github.workspace }}/../')/output" `
             --configuration release `
             --verbosity minimal `
-            -p:TreatWarningsAsErrors=false `
-            -p:AnalysisMode=none `
             --no-restore `
             --no-build
 
