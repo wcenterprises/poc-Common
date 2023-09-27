@@ -30,12 +30,12 @@ jobs:
             --verbosity minimal `
             -p:TreatWarningsAsErrors=false `
             -p:AnalysisMode=none `
-            -p:Copyright="${{ steps.setup.package-copyright }}" `
-            -p:Authors="${{ steps.setup.package-authors }}" `
-            -p:Company="${{ steps.setup.package-company }}" `
-            -p:AssemblyVersion="${{ steps.setup.package-authors }}" `
-            -p:FileVersion="${{ steps.setup.major-version }}.${{ steps.setup.build-number }}" `
-            -p:InformationalVersion="${{ steps.setup.informational-version }}+${{ github.sha }}" `
+            -p:Copyright="${{ steps.setup.outputs.package-copyright }}" `
+            -p:Authors="${{ steps.setup.outputs.package-authors }}" `
+            -p:Company="${{ steps.setup.outputs.package-company }}" `
+            -p:AssemblyVersion="${{ steps.setup.outputs.package-authors }}" `
+            -p:FileVersion="${{ steps.setup.outputs.major-version }}.${{ steps.setup.outputs.build-number }}" `
+            -p:InformationalVersion="${{ steps.setup.outputs.informational-version }}+${{ github.sha }}" `
             -p:TrimUnusedDependencies=true `
             -p:IsOnBuildAgent=true `
             -p:CodeAnalysisTreatWarningsAsErrors=true `
