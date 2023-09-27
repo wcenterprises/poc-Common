@@ -25,6 +25,7 @@ jobs:
       - name: build
         run: |
           Write-Output "building..."
+          write-output "${{ steps.setup.outputs.package-copyright }}"
           dotnet build "src/" `
             --configuration release `
             --verbosity minimal `
