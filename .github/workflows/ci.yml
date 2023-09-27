@@ -47,6 +47,7 @@ jobs:
         with:
           package-name: '${{ vars.PRODUCT_NAME }}'
           package-version: ${{ steps.setup.outputs.informational-version }}
+          create-escrow: true
 
       - run: |
           write-host 'Version: ${{ steps.setup.outputs.version }}'
