@@ -18,7 +18,7 @@ jobs:
 
       - name: build
         run: |
-          dotnet build "source/" `
+          dotnet build "src/" `
             --configuration release `
             --verbosity minimal `
             -p:TreatWarningsAsErrors=false `
