@@ -27,7 +27,7 @@ jobs:
 
           Write-Output "Publishing..."
           dotnet publish "src/" `
-            --property:PublishDir="$(resolve-path '${{ github.workspace }}/../')/output"
+            --property:PublishDir="$(resolve-path '${{ github.workspace }}/../')/output" `
             --configuration release `
             --no-restore `
             --no-build
