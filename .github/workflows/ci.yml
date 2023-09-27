@@ -18,6 +18,8 @@ jobs:
 
 
       - uses: brian-welsh/composite-build-action/setup@main
+        with:
+          name: '${{ vars.PRODUCT_NAME }}'
 
       - name: build
         run: |
