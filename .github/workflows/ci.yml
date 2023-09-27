@@ -18,12 +18,14 @@ jobs:
 
       - name: build
         run: |
+          Write-Output "building..."
           dotnet build "src/" `
             --configuration release `
             --verbosity minimal `
             -p:TreatWarningsAsErrors=false `
             -p:AnalysisMode=none
 
+          Write-Output "Publishing..."
           dotnet publish "src/" `
             --output "$(resolve-path '${{ github.workspace }}/../')/output" `
             --configuration release `
