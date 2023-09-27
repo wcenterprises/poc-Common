@@ -27,7 +27,6 @@ jobs:
           dotnet publish "src/" `
             --output "$(resolve-path '${{ github.workspace }}/../')/output" `
             --configuration release `
-            --verbosity minimal `
             --no-restore `
             --no-build
 
