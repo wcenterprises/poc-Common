@@ -48,12 +48,6 @@ jobs:
           package-name: '${{ vars.PRODUCT_NAME }}'
           package-version: ${{ steps.setup.outputs.informational-version }}
 
-      - uses: actions/upload-artifact@v3
-        with: 
-          name: octopus
-          path: '${{ github.workspace }}/../octopus/*'
-          retention-days: 1
- 
       - run: |
           write-host 'Version: ${{ steps.setup.outputs.version }}'
           write-host 'Version: ${{ steps.setup.outputs.informational-version }}'
