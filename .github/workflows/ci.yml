@@ -33,7 +33,7 @@ jobs:
             -p:Copyright="${{ steps.setup.outputs.package-copyright }}" `
             -p:Authors="${{ steps.setup.outputs.package-authors }}" `
             -p:Company="${{ steps.setup.outputs.package-company }}" `
-            -p:AssemblyVersion="${{ steps.setup.outputs.package-authors }}" `
+            -p:AssemblyVersion="${{ steps.setup.outputs.version }}" `
             -p:FileVersion="${{ steps.setup.outputs.major-version }}.${{ steps.setup.outputs.build-number }}" `
             -p:InformationalVersion="${{ steps.setup.outputs.informational-version }}+${{ github.sha }}" `
             -p:TrimUnusedDependencies=true `
