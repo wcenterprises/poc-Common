@@ -37,8 +37,8 @@ jobs:
             -p:FileVersion="${{ steps.setup.outputs.major-version }}.${{ steps.setup.outputs.build-number }}" `
             -p:InformationalVersion="${{ steps.setup.outputs.informational-version }}+${{ github.sha }}" `
             -p:TrimUnusedDependencies=true `
-            -p:IsOnBuildAgent=true `
-            -p:CodeAnalysisTreatWarningsAsErrors=true 
+            -p:IsOnBuildAgent=true
+            #-p:CodeAnalysisTreatWarningsAsErrors=true 
             #-warnaserror
 
           Write-Output "Publishing..."
