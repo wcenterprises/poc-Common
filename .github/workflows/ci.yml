@@ -31,6 +31,7 @@ jobs:
             --configuration release `
             --no-restore `
             --no-build
+        shell: pwsh
 
       - name: debug
         run: |
