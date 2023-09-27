@@ -49,6 +49,13 @@ jobs:
           package-version: ${{ steps.setup.outputs.informational-version }}
           package-channel: ${{ steps.setup.outputs.channel }}
 
+      - uses: brian-welsh/composite-build-action/release@main
+        id: release
+        with:
+          package-name: '${{ vars.PRODUCT_NAME }}'
+          release-version: ${{ steps.setup.outputs.informational-version }}
+          release-channel: ${{ steps.setup.outputs.channel }}
+
       - run: |
           write-host 'Version: ${{ steps.setup.outputs.version }}'
           write-host 'Version: ${{ steps.setup.outputs.informational-version }}'
