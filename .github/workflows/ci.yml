@@ -16,11 +16,6 @@ jobs:
 
       - uses: actions/setup-dotnet@v2
 
-      - run: write-output "value=foobar" >> $env:GITHUB_OUTPUT
-        id: tester
-        shell: pwsh
-
-
       - uses: brian-welsh/composite-build-action/setup@main
         id: setup
         with:
@@ -29,7 +24,7 @@ jobs:
       - name: build
         run: |          
           Write-Output "building: ${{ vars.PRODUCT_NAME }} v${{ steps.setup.outputs.informational-version }}"
-          write-output "${{ steps.setup.outputs.package-copyright }}"
+          
           dotnet build "src/" `
             --configuration release `
             --verbosity minimal `
