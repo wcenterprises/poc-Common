@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         run: |
-          Write-Output "building...${{ steps.tester.outputs.value}}"
+          Write-Output "building...${{ steps.setup.outputs.* }}"
           write-output "${{ steps.setup.outputs.package-copyright }}"
           dotnet build "src/" `
             --configuration release `
