@@ -27,8 +27,7 @@ jobs:
           name: '${{ vars.PRODUCT_NAME }}'
 
       - name: build
-        run: |
-          ${{ steps.setup.outputs.* }} | % { $_ }
+        run: |          
           Write-Output "building..."
           write-output "${{ steps.setup.outputs.package-copyright }}"
           dotnet build "src/" `
