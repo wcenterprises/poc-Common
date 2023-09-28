@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         run: |          
-          Write-Output "building..."
+          Write-Output "building: ${{ vars.PRODUCT_NAME }} v${{ steps.setup.outputs.informational-version }}"
           write-output "${{ steps.setup.outputs.package-copyright }}"
           dotnet build "src/" `
             --configuration release `
@@ -42,9 +42,9 @@ jobs:
             -p:FileVersion="${{ steps.setup.outputs.major-version }}.${{ steps.setup.outputs.build-number }}" `
             -p:InformationalVersion="${{ steps.setup.outputs.informational-version }}+${{ github.sha }}" `
             -p:TrimUnusedDependencies=true `
-            -p:IsOnBuildAgent=true
-            #-p:CodeAnalysisTreatWarningsAsErrors=true 
-            #-warnaserror
+            -p:IsOnBuildAgent=true `
+            -p:CodeAnalysisTreatWarningsAsErrors=true `
+            -warnaserror
 
           Write-Output "Publishing..."
           dotnet publish "src/" `
@@ -64,8 +64,6 @@ jobs:
         id: package
         with:
           package-name: '${{ vars.PRODUCT_NAME }}'
-          package-version: ${{ steps.setup.outputs.informational-version }}
-          package-channel: ${{ steps.setup.outputs.channel }}
 
       - uses: brian-welsh/composite-build-action/release@main
         id: release
