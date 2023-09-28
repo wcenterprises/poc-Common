@@ -24,7 +24,7 @@ jobs:
       - name: build
         id: build
         run: |
-          $output="$(resolve-path '${{ github.workspace }}/../')/output"
+          $output="$(join-path $(resolve-path '${{ github.workspace }}/../') -childpath 'output')"
           Write-Output "building: ${{ vars.PRODUCT_NAME }} v${{ steps.setup.outputs.informational-version }}"
           write-output "build-output=$output" >> $env:GITHUB_OUTPUT
           
