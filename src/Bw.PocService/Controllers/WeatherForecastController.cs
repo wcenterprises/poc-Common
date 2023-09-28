@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
+#pragma warning disable CA5394
+
 namespace Bw.PocService.Controllers
 {
     [ApiController]
