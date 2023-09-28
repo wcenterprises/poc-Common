@@ -22,7 +22,7 @@ jobs:
 
 
       - uses: brian-welsh/composite-build-action/setup@main
-        name: setup
+        id: setup
         with:
           name: '${{ vars.PRODUCT_NAME }}'
 
