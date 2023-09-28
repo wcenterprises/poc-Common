@@ -22,8 +22,11 @@ jobs:
           name: '${{ vars.PRODUCT_NAME }}'
 
       - name: build
-        run: |          
+        id: build
+        run: |
+          $output="$(resolve-path '${{ github.workspace }}/../')/output"
           Write-Output "building: ${{ vars.PRODUCT_NAME }} v${{ steps.setup.outputs.informational-version }}"
+          write-output "build-output=$output" >> $env:GITHUB_OUTPUT
           
           dotnet build "src/" `
             --configuration release `
@@ -43,7 +46,7 @@ jobs:
 
           Write-Output "Publishing..."
           dotnet publish "src/" `
-            --property:PublishDir="$(resolve-path '${{ github.workspace }}/../')/output" `
+            --property:PublishDir="$output" `
             --configuration release `
             --no-restore `
             --no-build
@@ -59,6 +62,7 @@ jobs:
         id: package
         with:
           package-name: '${{ vars.PRODUCT_NAME }}'
+          package-input: "${{ steps.build.outputs.build-output }}"
 
       - uses: brian-welsh/composite-build-action/release@main
         id: release
