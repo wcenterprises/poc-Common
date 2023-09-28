@@ -18,6 +18,7 @@ jobs:
 
       - run: write-output "value=foobar" >> $env:GITHUB_OUTPUT
         id: tester
+        shell: pwsh
 
 
       - uses: brian-welsh/composite-build-action/setup@main
