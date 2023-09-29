@@ -45,7 +45,7 @@ jobs:
 
           Write-Output "Publishing..."
           dotnet publish "src/" `
-            --property:PublishDir="${env:BA_PUBISH_PATH}" `
+            --property:PublishDir="${env:BA_PUBLISH_PATH}" `
             --configuration release `
             --no-restore `
             --no-build
