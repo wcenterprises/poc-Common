@@ -45,13 +45,14 @@ jobs:
 
           Write-Output "Publishing..."
           dotnet publish "src/" `
-            --property:PublishDir="$output" `
+            --property:PublishDir="${env:BA_PUBISH_PATH}" `
             --configuration release `
             --no-restore `
             --no-build
         shell: pwsh
 
       - name: debug
+        if: always()
         run: |
             gci env: | select name,value
             Write-host "ref: ${{ github.ref }}"
