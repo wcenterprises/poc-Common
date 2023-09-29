@@ -18,12 +18,10 @@ jobs:
 
 
       - uses: brian-welsh/build-action/init@init/clean
-        name: init
         with:
           package-name: '${{ vars.PRODUCT_NAME }}'
 
       - name: build
-        id: build
         run: |
           Write-Output "building..."
 
@@ -51,18 +49,16 @@ jobs:
             --no-build
         shell: pwsh
 
+      - uses: brian-welsh/build-action/package@init/clean
+
+      - uses: brian-welsh/build-action/release@init/clean
+
+
       - name: debug
         if: always()
         run: |
             gci env: | select name,value
             Write-host "ref: ${{ github.ref }}"
         shell: pwsh  
-
-      - uses: brian-welsh/build-action/package@init/clean
-
-      - uses: brian-welsh/build-action/release@init/clean
-
-
-
 
     
