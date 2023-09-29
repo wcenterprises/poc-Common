@@ -16,29 +16,28 @@ jobs:
 
       - uses: actions/setup-dotnet@v2
 
-      - uses: brian-welsh/composite-build-action/setup@main
-        id: setup
+
+      - uses: brian-welsh/build-action/init@init/clean
+        name: init
         with:
-          name: '${{ vars.PRODUCT_NAME }}'
+          package-name: '${{ vars.PRODUCT_NAME }}'
 
       - name: build
         id: build
         run: |
-          $output="$(join-path $(resolve-path '${{ github.workspace }}/../') -childpath 'output')"
-          Write-Output "building: ${{ vars.PRODUCT_NAME }} v${{ steps.setup.outputs.informational-version }}"
-          write-output "build-output=$output" >> $env:GITHUB_OUTPUT
-          
+          Write-Output "building..."
+
           dotnet build "src/" `
             --configuration release `
             --verbosity minimal `
             -p:TreatWarningsAsErrors=false `
             -p:AnalysisMode=none `
-            -p:Copyright="${{ steps.setup.outputs.package-copyright }}" `
-            -p:Authors="${{ steps.setup.outputs.package-authors }}" `
-            -p:Company="${{ steps.setup.outputs.package-company }}" `
-            -p:AssemblyVersion="${{ steps.setup.outputs.version }}" `
-            -p:FileVersion="${{ steps.setup.outputs.major-version }}.${{ steps.setup.outputs.build-number }}" `
-            -p:InformationalVersion="${{ steps.setup.outputs.informational-version }}+${{ github.sha }}" `
+            -p:Copyright="${env:BA_COPYWRITE}" `
+            -p:Authors="${env:BA_PACKAGE_AUTHORS}" `
+            -p:Company="${env:BA_PACKAGE_COMPANY}" `
+            -p:AssemblyVersion="${env:BA_VERSION}" `
+            -p:FileVersion="${env:BA_VERSION}" `
+            -p:InformationalVersion="${env:BA_INFORMATIONALVERSION}+${{ github.sha }}" `
             -p:TrimUnusedDependencies=true `
             -p:IsOnBuildAgent=true `
             -p:CodeAnalysisTreatWarningsAsErrors=false
@@ -58,25 +57,9 @@ jobs:
             Write-host "ref: ${{ github.ref }}"
         shell: pwsh  
 
-      - uses: brian-welsh/composite-build-action/package@main
-        id: package
-        with:
-          package-name: '${{ vars.PRODUCT_NAME }}'
-          package-input: "${{ steps.build.outputs.build-output }}"
+      - uses: brian-welsh/build-action/package@init/clean
 
-      - uses: brian-welsh/composite-build-action/release@main
-        id: release
-        with:
-          package-name: '${{ vars.PRODUCT_NAME }}'
-          release-version: ${{ steps.setup.outputs.informational-version }}
-          release-channel: ${{ steps.setup.outputs.channel }}
-          release-package: ${{ steps.package.outputs.path }}          
-
-      - run: |
-          write-host 'Version: ${{ steps.setup.outputs.version }}'
-          write-host 'Version: ${{ steps.setup.outputs.informational-version }}'
-        shell: pwsh
-
+      - uses: brian-welsh/build-action/release@init/clean
 
 
 
