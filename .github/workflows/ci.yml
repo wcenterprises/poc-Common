@@ -20,6 +20,7 @@ jobs:
       - uses: brian-welsh/build-action/init@init/clean
         with:
           package-name: '${{ vars.PRODUCT_NAME }}'
+          azdo-token: '${{ secrets.AZDO_NUGET_REPO }}'
 
       - name: build
         run: |
