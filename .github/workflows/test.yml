@@ -22,7 +22,7 @@ jobs:
           write-output "data=$($items.fullname)" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      - name: build
+      - name: test-var
         run: |
           $items=${{ fromJSON(steps.test.outputs.data) }}
 
