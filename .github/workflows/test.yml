@@ -24,6 +24,9 @@ jobs:
           "::notice:: convert to json"
           $arr=$($items.fullname)|convertto-json
 
+          "::notice:: arr"
+          $arr
+
           "::notice::set output"
           write-output "data=$($arr)" >> $env:GITHUB_OUTPUT
 
