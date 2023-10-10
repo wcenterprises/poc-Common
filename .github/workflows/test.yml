@@ -20,7 +20,9 @@ jobs:
         run: |
           "::notice:: sample"
           write-output "sample=this is me" >> $env:GITHUB_OUTPUT
-          $items=gci -recurse -file
+          
+          $items=get-item *
+          #$items=gci -recurse -file
 
           "::notice:: convert to json"
           $arr=($($items.fullname)|convertto-json).Replace('\\n','\n')
