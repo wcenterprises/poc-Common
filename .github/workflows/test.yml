@@ -19,7 +19,7 @@ jobs:
         id: test
         run: |
           $items=gci -recurse -file
-          $arr=$($items.fullname)
+          $arr=$($items.fullname)|convertto-json
           write-output "data=$($arr)" >> $env:GITHUB_OUTPUT
           write-output "TEST_DATA="$($arr|convertto-json)"" >> $env:GITHUB_ENV
         shell: pwsh
