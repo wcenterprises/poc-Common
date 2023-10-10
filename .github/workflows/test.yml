@@ -38,7 +38,7 @@ jobs:
       - name: test-var
         run: |
 
-          $items='${{ steps.test.outputs.data }}'|convertto-json
+          $items=('${{ steps.test.outputs.data }}'|convertto-json)
 
           "${{ steps.test.outputs.sample }}"|convertto-json
 
