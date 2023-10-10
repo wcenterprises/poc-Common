@@ -24,7 +24,7 @@ jobs:
 
       - name: test-var
         run: |
-          $items=${{ fromJSON(steps.test.outputs.data) }}
+          $items=${{ steps.test.outputs.data }}
 
           write-host $items
           
