@@ -1,0 +1,41 @@
+name: CI
+
+on: 
+  push:
+      branches: ["main"]
+      
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       
+      - uses: actions/checkout@v3
+
+
+      - name: build
+        id: test
+        run: |
+          $items=gci -recurse -file
+          write-output "data=$($items.fullname|convertto-json)" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: build
+        run: |
+          $items=${{ fromJSON(steps.test.outputs.data) }}
+
+          write-host $items
+          
+        shell: pwsh
+
+
+      - name: debug
+        if: always()
+        run: |
+            gci env: | select name,value
+            Write-host "ref: ${{ github.ref }}"
+        shell: pwsh  
+
+    
