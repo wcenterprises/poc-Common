@@ -18,6 +18,7 @@ jobs:
       - name: build
         id: test
         run: |
+          write-output "sample=this is me" >> $env:GITHUB_OUTPUT
           $items=gci -recurse -file
           $arr=$($items.fullname)|convertto-json
           write-output "data=$($arr)" >> $env:GITHUB_OUTPUT
@@ -27,6 +28,8 @@ jobs:
       - name: test-var
         run: |
           $items='${{ steps.test.outputs.data }}'
+
+          "${{ steps.test.outputs.sample }}"
 
           $items
 
