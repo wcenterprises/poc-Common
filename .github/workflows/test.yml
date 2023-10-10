@@ -21,7 +21,7 @@ jobs:
           $items=gci -recurse -file
           $arr=$($items.fullname)
           write-output "data=$($arr)" >> $env:GITHUB_OUTPUT
-          write-output "TEST_DATA="$($arr|convertto-json)""" >> $env:GITHUB_ENV
+          write-output "TEST_DATA="$($arr|convertto-json)"" >> $env:GITHUB_ENV
         shell: pwsh
 
       - name: test-var
