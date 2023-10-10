@@ -18,15 +18,22 @@ jobs:
       - name: build
         id: test
         run: |
+          "::notice:: sample"
           write-output "sample=this is me" >> $env:GITHUB_OUTPUT
           $items=gci -recurse -file
+          "::notice:: convert to json"
           $arr=$($items.fullname)|convertto-json
+
+          "::notice::set output"
           write-output "data=$($arr)" >> $env:GITHUB_OUTPUT
+
+          "::notice::set env"
           write-output "TEST_DATA=$($arr)" >> $env:GITHUB_ENV
         shell: pwsh
 
       - name: test-var
         run: |
+
           $items='${{ steps.test.outputs.data }}'
 
           "${{ steps.test.outputs.sample }}"
