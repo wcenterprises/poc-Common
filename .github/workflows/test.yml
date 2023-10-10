@@ -29,10 +29,10 @@ jobs:
           $arr
 
           "::notice::set output"
-          write-output "data=$($arr)" >> $env:GITHUB_OUTPUT
+          write-output "data=$($arr)" |Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
 
           "::notice::set env"
-          write-output "TEST_DATA=$($arr)" >> $env:GITHUB_ENV
+          write-output "TEST_DATA=$($arr)" | oOut-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
         shell: pwsh
 
       - name: test-var
