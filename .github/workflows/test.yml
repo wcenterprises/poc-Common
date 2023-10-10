@@ -19,12 +19,12 @@ jobs:
         id: test
         run: |
           $items=gci -recurse -file
-          write-output "data=$($items.fullname|convertto-json)" >> $env:GITHUB_OUTPUT
+          write-output "data=$($items.fullname)" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: test-var
         run: |
-          $items=$(${{ steps.test.outputs.data }})|convertfrom-json
+          $items=$(${{ fromJSON(steps.test.outputs.data) }})
 
           $items
 
