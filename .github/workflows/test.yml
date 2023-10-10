@@ -26,6 +26,8 @@ jobs:
         run: |
           $items=${{ steps.test.outputs.data }}
 
+          $items
+
           write-host $items
           
         shell: pwsh
