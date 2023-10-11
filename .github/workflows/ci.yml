@@ -22,6 +22,8 @@ jobs:
           package-name: '${{ vars.PRODUCT_NAME }}'
           azdo-token: '${{ secrets.AZDO_NUGET_REPO }}'
 
+      - uses: brian-welsh/build-action/build@init/clean
+
       - name: build
         run: |
           Write-Output "building..."
