@@ -42,7 +42,7 @@ jobs:
 
           $items=('${{ steps.test.outputs.data }}'|convertfrom-json)
 
-          "${{ steps.test.outputs.sample }}"|convertfrom-json
+          # "${{ steps.test.outputs.sample }}"|convertfrom-json
 
           $items
 
