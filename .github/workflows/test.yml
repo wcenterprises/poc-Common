@@ -42,13 +42,13 @@ jobs:
 
           $items=('${{ steps.test.outputs.data }}'|convertfrom-json)
 
-          $items|%{write-host "$($_)" -foregroundcolor green}
+          $items|%{write-host "::notice::$($_)"}
 
           # "${{ steps.test.outputs.sample }}"|convertfrom-json
 
-          $items
+          #$ items
 
-          write-host $items
+          #write-host $items
           
         shell: pwsh
 
