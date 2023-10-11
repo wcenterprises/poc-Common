@@ -49,6 +49,9 @@ jobs:
           #$ items
 
           #write-host $items
+
+          'fromJSON'
+          '${{ fromJSON(steps.test.outputs.data) }}'
           
         shell: pwsh
 
