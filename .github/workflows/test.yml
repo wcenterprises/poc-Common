@@ -42,6 +42,8 @@ jobs:
 
           $items=('${{ steps.test.outputs.data }}'|convertfrom-json)
 
+          $items|%{write-host "$($_)" -foregroundcolor green}
+
           # "${{ steps.test.outputs.sample }}"|convertfrom-json
 
           $items
