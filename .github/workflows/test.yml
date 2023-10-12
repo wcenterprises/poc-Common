@@ -22,7 +22,7 @@ jobs:
           #$items=gci -recurse -file
 
           "::notice:: convert to json"
-          $arr=($($items.fullname)|convertto-json -compress).Replace('\\n','\n')
+          # $arr=($($items.fullname)|convertto-json -EscapeHandling Default).Replace('\\n','\n')
 
           "::notice:: arr"
           $arr
@@ -37,7 +37,7 @@ jobs:
       - name: test-var
         run: |
 
-          $items=('${{ steps.test.outputs.data }}'|convertfrom-json)
+          $items=('${{ fromJSON(steps.test.outputs.data) }}')
 
           $items|%{write-host "::notice::$($_)"}
 
