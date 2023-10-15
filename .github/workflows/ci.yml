@@ -16,52 +16,11 @@ jobs:
 
       - uses: actions/setup-dotnet@v3.2.0
 
+      - uses: wcenterprises/setup-action@feature/moderize
 
-      - uses: brian-welsh/build-action/init@init/clean
-        with:
-          package-name: '${{ vars.PRODUCT_NAME }}'
-          azdo-token: '${{ secrets.AZDO_NUGET_REPO }}'
-
-      - uses: brian-welsh/build-action/build@init/clean
-
-      - name: build
-        run: |
-          Write-Output "building..."
-
-          dotnet build "src/" `
-            --configuration release `
-            --verbosity minimal `
-            -p:TreatWarningsAsErrors=false `
-            -p:AnalysisMode=none `
-            -p:Copyright="${env:BA_COPYWRITE}" `
-            -p:Authors="${env:BA_PACKAGE_AUTHORS}" `
-            -p:Company="${env:BA_PACKAGE_COMPANY}" `
-            -p:AssemblyVersion="${env:BA_VERSION}" `
-            -p:FileVersion="${env:BA_VERSION}" `
-            -p:InformationalVersion="${env:BA_INFORMATIONALVERSION}+${{ github.sha }}" `
-            -p:TrimUnusedDependencies=true `
-            -p:IsOnBuildAgent=true `
-            -p:CodeAnalysisTreatWarningsAsErrors=false
-            # -warnaserror
-
-          Write-Output "Publishing..."
-          dotnet publish "src/" `
-            --property:PublishDir="${env:BA_PUBLISH_PATH}" `
-            --configuration release `
-            --no-restore `
-            --no-build
-        shell: pwsh
-
-      - uses: brian-welsh/build-action/package@init/clean
-
-      - uses: brian-welsh/build-action/release@init/clean
-
-
-      - name: debug
-        if: always()
-        run: |
-            gci env: | select name,value
-            Write-host "ref: ${{ github.ref }}"
-        shell: pwsh  
+      - run: |
+          echo "debugging"
+          printenv
+        shell: bash
 
     
