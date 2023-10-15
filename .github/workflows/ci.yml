@@ -20,7 +20,7 @@ jobs:
 
       - run: |
           echo "debugging"
-          printenv
+          printenv | grep '^__*'
         shell: bash
 
     
