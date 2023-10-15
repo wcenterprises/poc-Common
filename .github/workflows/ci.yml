@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/setup-dotnet@v3.2.0
 
-      - uses: wcenterprises/setup-action@feature/moderize
+      - uses: wcenterprises/composite-build-action/setup-action@feature/moderize
 
       - run: |
           echo "debugging"
