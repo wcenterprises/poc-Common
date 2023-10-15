@@ -22,5 +22,8 @@ jobs:
           echo "debugging"
           printenv | grep '^__*'
         shell: bash
+      - run: |
+          echo 'more testing'
+        shell: bash
 
     
