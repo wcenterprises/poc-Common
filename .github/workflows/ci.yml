@@ -16,7 +16,8 @@ jobs:
 
       - uses: actions/setup-dotnet@v3.2.0
 
-      - uses: wcenterprises/build-action/@main
+      # - uses: wcenterprises/build-action/@main
+      - uses: wcenterprises/build-template-baseline@main
       
       ## - uses: wcenterprises/build-action/test-action@feature/project-init
       
