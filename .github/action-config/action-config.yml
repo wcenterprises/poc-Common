@@ -1,0 +1,17 @@
+name: Sample config for unit testing
+
+config:
+  copyright: 'Copyright © 2023, Brian Welsh. All rights reservived.'
+  company: Welsh Clan Enterprises
+  authors: Brian Welsh (@brian-welsh)
+  product: "Brian's super neat build actions"
+  description: >-
+      [Example] - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id tortor 
+      ultricies justo tristique pretium. Praesent vel auctor ligula. Phasellus ac consequat quam. 
+      Integer malesuada, ex vitae mattis varius, felis diam tempus lectus, et faucibus massa 
+      turpis sed odio. Maecenas molestie convallis finibus. 
+
+      [Example] - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id tortor 
+      ultricies justo tristique pretium. Praesent vel auctor ligula. Phasellus ac consequat quam. 
+      Integer malesuada, ex vitae mattis varius, felis diam tempus lectus, et faucibus massa 
+      turpis sed odio. Maecenas molestie convallis finibus.

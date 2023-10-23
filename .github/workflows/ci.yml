@@ -19,6 +19,8 @@ jobs:
       # - uses: wcenterprises/build-action/@main
       # - uses: wcenterprises/build-template-baseline@main
       - uses: wcenterprises/standard-build-actions/actions/setup@feature/init-action
+        with:
+          config-file: .github/action-config/action-config.yml
       
       ## - uses: wcenterprises/build-action/test-action@feature/project-init
       
