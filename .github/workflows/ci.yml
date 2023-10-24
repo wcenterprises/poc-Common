@@ -21,6 +21,8 @@ jobs:
       - uses: wcenterprises/standard-build-actions/actions/setup@feature/init-action
         with:
           config-file: .github/action-config/action-config.yml
+
+      - uses: wcenterprises/standard-build-actions/actions/vstest@feature/init-action
       
       ## - uses: wcenterprises/build-action/test-action@feature/project-init
       
