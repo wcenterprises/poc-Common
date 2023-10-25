@@ -22,7 +22,7 @@ jobs:
         with:
           config-file: .github/action-config/action-config.yml
       
-      - uses: wcenterprises/build-action/actions/package@feature/project-init
+      - uses: wcenterprises/standard-build-actions/actions/package@feature/project-init
       
 
       - run: |
