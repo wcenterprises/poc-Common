@@ -22,7 +22,7 @@ jobs:
         with:
           config-file: .github/action-config/action-config.yml
       
-      - uses: wcenterprises/standard-build-actions/actions/package@feature/init-action
+      - uses: wcenterprises/standard-build-actions/actions/package/octopus@feature/init-action
       
 
       - run: |
