@@ -3,6 +3,9 @@ name: Detect Stale PR and Branches
 on: 
   workflow_dispatch:
 
+permissions:
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
