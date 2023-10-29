@@ -9,4 +9,6 @@ jobs:
 
     steps:
       - uses: wcenterprises/standard-build-actions/actions/stale@feature/init-action
+        env:
+          GH_TOKEN: ${{ github.token }}
 
