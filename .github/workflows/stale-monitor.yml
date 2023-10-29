@@ -1,0 +1,12 @@
+name: Detect Stale PR and Branches
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: wcenterprises/standard-build-actions/actions/stale@feature/init-action
+
