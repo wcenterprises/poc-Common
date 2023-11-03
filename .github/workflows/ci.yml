@@ -18,11 +18,11 @@ jobs:
 
       # - uses: wcenterprises/build-action/@main
       # - uses: wcenterprises/build-template-baseline@main
-      - uses: wcenterprises/standard-build-actions/actions/setup@feature/init-action
+      - uses: wcenterprises/standard-build-actions/actions/setup@daily
         with:
           config-file: .github/action-config/action-config.yml
       
-      - uses: wcenterprises/standard-build-actions/actions/package/octopus@feature/init-action
+      - uses: wcenterprises/standard-build-actions/actions/package/octopus@daily
       
 
       - run: |
