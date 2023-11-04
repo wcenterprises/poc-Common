@@ -22,8 +22,20 @@ jobs:
         with:
           config-file: .github/action-config/action-config.yml
       
-      - uses: wcenterprises/standard-build-actions/actions/package/octopus@daily
       
+      - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        with:
+          command: restore
+        
+      - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        with:
+          command: build
+      
+      - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        with:
+          command: pack
+        
+        
 
       - run: |
           echo "debugging"
