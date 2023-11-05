@@ -38,7 +38,19 @@ jobs:
         with:
           command: build
           projects: '**/*.sln'
+          arguments: |
+            --no-restore
       
+        
+      - name: publish
+        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        with:
+          command: publish
+          projects: '**/*.sln'
+          arguments: |
+            --no-restore
+            --no-build
+        
       - name: pack
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
