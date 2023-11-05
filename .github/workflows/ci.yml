@@ -16,8 +16,11 @@ jobs:
 
       - uses: actions/setup-dotnet@v3.2.0
 
-      # - uses: wcenterprises/build-action/@main
-      # - uses: wcenterprises/build-template-baseline@main
+      - name: dotnet
+        run: |
+          dotnet build src/Bw.PocService.sln --configuration release --output ../output
+        shell: pwsh
+
       - name: setup
         uses: wcenterprises/standard-build-actions/actions/setup@daily
         with:
@@ -34,11 +37,13 @@ jobs:
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: build
+          projects: '**/*.sln'
       
       - name: pack
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: pack
+          projects: '**/*.sln'
         
         
 
