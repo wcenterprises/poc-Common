@@ -17,8 +17,9 @@ jobs:
       - uses: actions/setup-dotnet@v3.2.0
 
       - name: dotnet
+        if: false
         run: |
-          dotnet build src/Bw.PocService.sln --configuration release --output ../output
+          dotnet build src/Bw.PocService.sln --configuration release 
         shell: pwsh
 
       - name: setup
@@ -38,7 +39,7 @@ jobs:
         with:
           command: build
           projects: '**/*.sln'
-          arguments: |
+          parameters: |
             --no-restore
       
         
@@ -47,7 +48,7 @@ jobs:
         with:
           command: publish
           projects: '**/*.sln'
-          arguments: |
+          parameters: |
             --no-restore
             --no-build
         
