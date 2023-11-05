@@ -18,21 +18,25 @@ jobs:
 
       # - uses: wcenterprises/build-action/@main
       # - uses: wcenterprises/build-template-baseline@main
-      - uses: wcenterprises/standard-build-actions/actions/setup@daily
+      - name: setup
+        uses: wcenterprises/standard-build-actions/actions/setup@daily
         with:
           config-file: .github/action-config/action-config.yml
       
       
-      - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+      - name: restore
+        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: restore
           projects: '**/*.sln'
         
-      - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+      - name: build
+        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: build
       
-      - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+      - name: pack
+        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: pack
         
