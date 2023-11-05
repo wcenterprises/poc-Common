@@ -26,6 +26,8 @@ jobs:
       - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: restore
+          projects: '**/*.sln'
+          verbosity: normal
         
       - uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
