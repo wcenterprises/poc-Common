@@ -1,4 +1,4 @@
-namespace Bw.PocService
+namespace Wce.Template.ServiceImplementation
 {
     public class WeatherForecast
     {
