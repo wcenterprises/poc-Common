@@ -69,6 +69,7 @@ jobs:
         
       - name: pack
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        if: false
         with:
           command: pack
           projects: '**/*.csproj'
@@ -77,6 +78,7 @@ jobs:
 
       - run: |
           echo "debugging"
+          cd ..
           find
         shell: bash
         if: always()
