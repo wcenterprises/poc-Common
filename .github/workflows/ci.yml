@@ -42,9 +42,8 @@ jobs:
         
       - name: build
         if: true
-        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        uses: wcenterprises/standard-build-actions/actions/dotnet/build@daily
         with:
-          command: build
           projects: '**/*.csproj'
           configuration: release
           parameters: |
