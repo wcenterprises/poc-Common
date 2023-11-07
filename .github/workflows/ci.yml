@@ -67,7 +67,7 @@ jobs:
             --no-build
             --configuration
             release
-            -p:SatelliteResourceLanguages=en-US;en
+            
         
       - name: pack
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
