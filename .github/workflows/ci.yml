@@ -41,7 +41,7 @@ jobs:
           projects: '**/*.sln'
         
       - name: build
-        if: false
+        if: true
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: build
@@ -49,9 +49,11 @@ jobs:
           configuration: release
           parameters: |
             --no-restore
+            
       - run: 
           /usr/share/dotnet/dotnet build src/Wce.Template.sln --configuration release
         shell: bash
+        if: false
         
       - name: publish
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
