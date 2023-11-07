@@ -49,7 +49,6 @@ jobs:
           configuration: release
           parameters: |
             --no-restore
-            -p:SatelliteResourceLanguages=en-US;en
             
       - run: 
           /usr/share/dotnet/dotnet build src/Wce.Template.sln --configuration release
@@ -65,8 +64,6 @@ jobs:
           parameters: |
             --no-restore
             --no-build
-            --configuration
-            release
             
         
       - name: pack
