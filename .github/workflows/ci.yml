@@ -64,6 +64,8 @@ jobs:
           parameters: |
             --no-restore
             --no-build
+            --configuration
+            release
         
       - name: pack
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
