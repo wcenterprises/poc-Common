@@ -75,8 +75,9 @@ jobs:
 
       - run: |
           echo "debugging"
-          printenv | grep '^__*'
+          find
         shell: bash
+        if: always()
       - run: |
           echo 'more testing'
         shell: bash
