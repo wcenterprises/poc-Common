@@ -38,14 +38,14 @@ jobs:
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: restore
-          projects: '**/*.sln'
+          projects: '**/*.csproj'
         
       - name: build
         if: true
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: build
-          projects: '**/*.sln'
+          projects: '**/*.csproj'
           configuration: release
           parameters: |
             --no-restore
@@ -59,7 +59,7 @@ jobs:
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: publish
-          projects: '**/*.sln'
+          projects: '**/*.csproj'
           configuration: release
           parameters: |
             --no-restore
@@ -69,7 +69,7 @@ jobs:
         uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: pack
-          projects: '**/*.sln'
+          projects: '**/*.csproj'
         
         
 
