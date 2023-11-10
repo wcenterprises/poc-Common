@@ -1,0 +1,39 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    labels:
+      - dependabot
+      - actions
+    schedule:
+      interval: daily
+    groups:
+      actions:
+        patterns:
+        - "actions*"
+
+  - package-ecosystem: nuget
+    directory: /src
+    labels:
+      - dependabot
+      - actions
+    schedule:
+      interval: daily
+    groups:
+      actions:
+        patterns:
+        - "*"
+
+  - package-ecosystem: npm
+    directory: /
+    labels:
+      - dependabot
+      - npm
+    schedule:
+      interval: daily
+    groups:
+      npm:
+        patterns:
+        - "@typescript*"
+        - "@types*"
+        - "eslint"
