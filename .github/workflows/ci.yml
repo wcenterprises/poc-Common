@@ -41,7 +41,7 @@ jobs:
       
       
       - name: restore
-        uses: wcenterprises/standard-build-actions/actions/jira@daily
+        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
         with:
           command: restore
           projects: '**/*.csproj'
