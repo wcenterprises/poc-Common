@@ -32,10 +32,16 @@ jobs:
         uses: wcenterprises/standard-build-actions/actions/setup@daily
         with:
           config-file: .github/action-config/action-config.yml
+
+      - uses: wcenterprises/standard-build-actions/actions/issue/jira@daily
+        env:
+          JIRA_HOST: ${{ secrets.JIRA_HOST }}
+          JIRA_USERNAME: ${{ secrets.JIRA_USERNAME}}
+          JIRA_PASSWORD: ${{secrets.JIRA_PASSWORD}}
       
       
       - name: restore
-        uses: wcenterprises/standard-build-actions/actions/dotnet@daily
+        uses: wcenterprises/standard-build-actions/actions/jira@daily
         with:
           command: restore
           projects: '**/*.csproj'
