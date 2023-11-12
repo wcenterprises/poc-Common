@@ -34,6 +34,18 @@ jobs:
           config-file: .github/action-config/action-config.yml
 
       - uses: wcenterprises/standard-build-actions/actions/issue/jira@daily
+        with:
+          command: create
+          project-key: TDA
+          issue-summary: 'test(action): summary test from action.yml'
+          issue-description: >
+            # Auto generated
+            
+            this is markdown and should be treated as such when all is `said` and **done**
+
+            this `markdown` can be as _long or short_ as you want it. It can also be as
+            complex as you want it too. 
+
         env:
           JIRA_HOST: ${{ secrets.JIRA_HOST }}
           JIRA_USERNAME: ${{ secrets.JIRA_USERNAME}}
